@@ -9,7 +9,7 @@ export class HistoryService {
 
   public saveHistoryEvent = new EventEmitter<string>();
 
-  public histories:
+  /*public histories:
     {subject: string,
       currentMax: number,
       currentCumulative: number,
@@ -21,7 +21,16 @@ export class HistoryService {
           currentCumulative: 41.55, currentLost: 13.41,
           currentPercentage: 75.55, highestPossible: 86.55,
           finalCumulative: 41.55}
-          ];
+          ];*/
+
+  public histories:
+    {subject: string,
+      currentMax: number,
+      currentCumulative: number,
+      currentLost: number,
+      currentPercentage: number,
+      highestPossible: number,
+      finalCumulative: number}[] = [];
 
   constructor(private debugLoggingService: DebugLoggingService) { }
 

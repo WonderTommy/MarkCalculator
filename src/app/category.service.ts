@@ -3,11 +3,13 @@ import {DebugLoggingService} from './debug-logging.service';
 
 @Injectable()
 export class CategoryService {
-  categories: {name: string, weight: number, grade: number}[] = [
+  /*categories: {name: string, weight: number, grade: number}[] = [
     {name: 'Assignment', weight: 20, grade: 90},
     {name: 'Midterm 1', weight: 20, grade: 60},
     {name: 'Midterm 2', weight: 15, grade: 77}
-  ];
+  ];*/
+
+  categories: {name: string, weight: number, grade: number}[] = []
 
   public calculateEvent = new EventEmitter<null>();
 

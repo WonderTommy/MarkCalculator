@@ -42,6 +42,7 @@ export class ResultComponent implements OnInit {
           this.currentCumulative, this.currentLost,
           this.currentPercentage, this.highestPossible,
           this.finalCumulative);
+        console.log('currentMax is: ' + this.currentMax);
       }
     );
   }
