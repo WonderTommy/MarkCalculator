@@ -7,7 +7,7 @@ import {CategoryService} from './category.service';
 })
 export class HistoryService {
 
-  public saveHistoryEvent = new EventEmitter<null>();
+  public saveHistoryEvent = new EventEmitter<string>();
 
   public histories:
     {subject: string,
@@ -27,8 +27,11 @@ export class HistoryService {
 
   public addHistory(subject: string, currentMax: number, currentCumulative: number, currentLost: number,
                     currentPercentage: number, highestPossible: number, finalCumulative: number) {
-    this.histories.push({subject, currentMax, currentCumulative, currentLost, currentPercentage,
-    highestPossible, finalCumulative});
+    if (this.histories.length > 0 && this.histories[this.histories.length - 1].subject === subject) {
+    } else {
+      this.histories.push({subject, currentMax, currentCumulative, currentLost, currentPercentage,
+      highestPossible, finalCumulative});
+    }
     this.debugLoggingService.standardLog(
       'HistoryService',
       'addHistory',
@@ -36,8 +39,9 @@ export class HistoryService {
       );
   }
 
-  public emitSaveHistoryEvent() {
-    this.saveHistoryEvent.emit();
+  public emitSaveHistoryEvent(subject: string) {
+    this.debugLoggingService.tempLog('HistoryService', 'emitSaveHistoryEvent');
+    this.saveHistoryEvent.emit(subject);
   }
 
   public getHistoryCount(): number {

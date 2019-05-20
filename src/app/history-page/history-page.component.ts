@@ -13,7 +13,7 @@ export class HistoryPageComponent implements OnInit {
     finalCumulative: number}[] = [];
 
   constructor(private historyService: HistoryService) {
-    // this.histories = this.historyService.histories;
+    this.histories = this.historyService.histories;
   }
 
   ngOnInit() {
@@ -22,6 +22,7 @@ export class HistoryPageComponent implements OnInit {
 
   onClearHistory() {
     this.historyService.clearHistory();
+    this.histories = null;
   }
 
   syncronizeHistory() {

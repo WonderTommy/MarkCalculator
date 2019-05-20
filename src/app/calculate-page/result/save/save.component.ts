@@ -28,8 +28,8 @@ export class SaveComponent implements OnInit {
     if (this.subject === '') {
       this.showWarning = true;
     } else {
-      this.historyService.emitSaveHistoryEvent();
-      this.historyService.histories[this.historyService.getHistoryCount() - 1].subject = this.subject;
+      this.historyService.emitSaveHistoryEvent(this.subject);
+      // this.historyService.histories[this.historyService.getHistoryCount() - 1].subject = this.subject;
       if (this.showWarning === true) {
         this.onCloseWarning();
       }

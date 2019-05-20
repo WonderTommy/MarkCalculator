@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CategoryService} from '../../category.service';
 import {HistoryService} from '../../history.service';
+import {DebugLoggingService} from '../../debug-logging.service';
 
 @Component({
   selector: 'app-result',
@@ -27,17 +28,20 @@ export class ResultComponent implements OnInit {
 
 
   constructor(private categoryService: CategoryService,
-              private historyService: HistoryService) {
+              private historyService: HistoryService,
+              private debugLoggingService: DebugLoggingService) {
     this.resetFigures();
   }
 
   ngOnInit() {
     this.historyService.saveHistoryEvent.subscribe(
-      () => {
-        this.historyService.histories.push({subject: this.PLACEHOLDER, currentMax: this.currentMax,
-          currentCumulative: this.currentCumulative, currentLost: this.currentLost,
-          currentPercentage: this.currentPercentage, highestPossible: this.highestPossible,
-          finalCumulative: this.finalCumulative});
+      (s: string) => {
+        this.debugLoggingService.standardLog('ResultComponent',
+          'saveHistoryEveng subscrib', 'none');
+        this.historyService.addHistory(s, this.currentMax,
+          this.currentCumulative, this.currentLost,
+          this.currentPercentage, this.highestPossible,
+          this.finalCumulative);
       }
     );
   }
