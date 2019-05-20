@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-xs-12 col-md-8 col-md-offset-2">
+    <div>
+      <p>{{category.name}}</p>
+    </div>
+    <div>
+    <label>Weight</label>
+    <input
+      type="number"
+      class="form-control"
+      [(ngModel)]="category.weight">
+    </div>
+    <div>
+    <label>Grade</label>
+    <input
+      type="number"
+      class="form-control"
+      [(ngModel)]="category.grade">
+    </div>
+    <br>
+    <button
+      class="btn btn-danger"
+      (click)="deleteCategory()">
+      Delete Category
+    </button>
+    <hr>
+  </div>
+</div>
+
+

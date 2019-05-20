@@ -1,0 +1,15 @@
+<div>
+  <button
+    class="btn btn-danger"
+    (click)="onClearHistory()">
+    Clear History
+  </button>
+  <br>
+  <br>
+  <hr>
+  <app-history
+    *ngFor="let hist of histories; let i = index"
+    [history]="hist"
+    [index]="i">
+  </app-history>
+</div>

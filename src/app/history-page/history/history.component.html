@@ -1,0 +1,45 @@
+<div>
+  <label>{{history.subject}}</label>
+  <table class="table">
+    <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>{{CURRENT_MAX_ROW_NAME}}</td>
+      <td>{{history.currentMax}}</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>{{CURRENT_CUMULATIVE_ROW_NAME}}</td>
+      <td>{{history.currentCumulative}}</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>{{CURRENT_LOST_ROW_NAME}}</td>
+      <td>{{history.currentLost}}</td>
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td>{{CURRENT_PERCENTAGE_ROW_NAME}}</td>
+      <td>{{history.currentPercentage}}</td>
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td>{{HIGHEST_POSSIBLE_ROW_NAME}}</td>
+      <td>{{history.highestPossible}}</td>
+    </tr>
+    <tr>
+      <th scope="row">6</th>
+      <td>{{FINAL_CUMULATIVE_ROW_NAME}}</td>
+      <td>{{history.finalCumulative}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<div>
+  <button
+    class="btn btn-danger"
+    (click)="onDeleteHistory()">
+    Delete History
+  </button>
+</div>
+<hr>
